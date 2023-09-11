@@ -251,7 +251,7 @@ dapc_pie.list <- dapc_df %>%
                                           xmin = longitude - radius, xmax = longitude + radius,
                                           ymin = latitude - radius, ymax = latitude + radius)))
 
-
+#add individual ancestry pies to map
 dapc_map <- p + 
   geom_tile(data = dapc_df %>% tidyr::gather(type, value, -longitude, -latitude, -radius, -id),
             aes(x = longitude, y = latitude, fill = type), 
