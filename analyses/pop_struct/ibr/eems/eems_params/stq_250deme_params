@@ -1,0 +1,10 @@
+datapath = /stquoll_landscape_genomics/analyses/pop_struct/ibr/eems/eems_input/stq
+mcmcpath = /stquoll_landscape_genomics/analyses/pop_struct/ibr/eems/250deme_run1
+nIndiv = 345
+nSites = 3431
+nDemes = 250
+diploid = true
+numMCMCIter = 3000000
+numBurnIter = 1500000
+numThinIter = 9999
+seed = 123

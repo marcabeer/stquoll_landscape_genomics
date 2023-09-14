@@ -1,0 +1,41 @@
+Input parameter values:
+               datapath = /data/data/stquoll/analyses/eems/peer_rev_07102023/all_ind
+               mcmcpath = /data/data/stquoll/analyses/eems/peer_rev_07102023/1000deme_run1
+               prevpath = 
+               gridpath = 
+               distance = euclidean
+                diploid = 1
+                 nIndiv = 345
+                 nSites = 3431
+                 nDemes = 1000
+                   seed = 123
+            numMCMCIter = 3000000
+            numBurnIter = 1500000
+            numThinIter = 9999
+              negBiSize = 10
+              negBiProb = 0.670000
+             qVoronoiPr = 0.250000
+             mrateShape = 0.000500
+             qrateShape = 0.002000
+             sigmaShape = 0.001000
+             qrateScale = 0.500000
+             mrateScale = 2.000000
+             sigmaScale = 1.000000
+       mSeedsProposalS2 = 0.010000
+       qSeedsProposalS2 = 0.100000
+       mEffctProposalS2 = 0.100000
+       qEffctProposalS2 = 0.001000
+      mrateMuProposalS2 = 0.010000
+
+Acceptance proportions:
+	(92310/187603) = 49% for proposal type "qTileRate",		 with proposal variance "qEffctProposalS2"
+	(38056/187293) = 20% for proposal type "qTileMove",		 with proposal variance "qSeedsProposalS2"
+	(48066/187837) = 26% for proposal type "qBirthDeath"
+	(342579/562974) = 61% for proposal type "mTileRate",		 with proposal variance "mEffctProposalS2"
+	(42363/374891) = 11% for proposal type "mMeanRate",		 with proposal variance "mrateMuProposalS2"
+	(128645/562303) = 23% for proposal type "mTileMove",		 with proposal variance "mSeedsProposalS2"
+	(82826/562383) = 15% for proposal type "mBirthDeath"
+	(176238/374716) = 47% for proposal type "degrees of freedom"
+
+Final log prior: 76.00
+Final log llike: 162875.88
