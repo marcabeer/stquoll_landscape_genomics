@@ -1,0 +1,69 @@
+library(lfmm)
+library("BiocManager")
+library(LEA)
+library(tseries)
+library(adegenet)
+library(vcfR)
+library(factoextra)
+
+##############################
+#Load in genetic data
+##############################
+
+#load lfmm format genotypes
+lfmm_genotypes <- read.lfmm("stq.recode.lfmm")
+
+
+##############################
+#Impute missing genotypes
+##############################
+
+#estimate admixture coefficients assuming K=3 (supported by FastStructure and DAPC)
+lfmm_snmf <- snmf(input.file=lfmm_genotypes, K=3, project="new", entropy=TRUE, repetitions=50)
+
+#identify run with lowest cross-entropy (best genotype prediction accuracy)
+best = which.min(cross.entropy(lfmm_snmf, K = 3))
+
+#impute missing genotypes
+lfmm_imputed <- impute(lfmm_snmf, input.file=lfmm_genotypes, method="mode", K=3, run=best)
+
+#load in imputed genotype matrix
+lfmm_imputed_genotype_matrix <- read.matrix("stq.recode.lfmm_imputed.lfmm", header=FALSE, sep=" ")
+
+#save copy of imputed genotype matrix for manipulation
+imputed_geno <- lfmm_imputed_genotype_matrix
+
+
+##############################
+#Run PCA on imputed genotypes
+##############################
+
+test <- data.frame(matrix(ncol=dim(imputed_geno)[2]*2, nrow=dim(imputed_geno)[1]))
+inds <- seq(1, dim(test)[2], by=2)
+inds2 <- seq(2, dim(test)[2], by=2)
+test[,inds] <- imputed_geno
+test[,inds2] <- abs(test[,inds]-2)
+
+#convert to integer
+test_unlist <- as.integer(unlist(test))
+test_int <- data.frame(matrix(ncol=ncol(test), nrow=nrow(test), data=test_unlist))
+
+#read in genind to replace tab matrix
+stq_genind <- readRDS("stq_genind")
+
+#insert imputed genotype matrix into copy of genind
+stq_genind_imp <- stq_genind
+stq_genind_imp$tab <- as.matrix(test_int)
+
+#run PCA
+stq_int_pca <- dudi.pca(stq_genind_imp, scannf=FALSE, nf=10)
+
+#if not re-running above code, read in our results
+stq_int_pca <- readRDS("imputed_pca_results.gz")
+
+#make screeplot (visualize % explained variance for each PC)
+##PC1 and PC2 explain quite a bit of variance; PC1 most important for explaining pop structure (DAPC result)
+fviz_eig(stq_int_pca)
+
+#export PC1 and PC2 scores
+#write.table(stq_int_pca$li[,1:2], "imputed_pca_scores", sep="\t", col.names=TRUE, row.names=FALSE, quote=FALSE)
