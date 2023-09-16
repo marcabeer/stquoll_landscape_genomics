@@ -33,15 +33,12 @@ spca_scores <- data.frame(id=row.names(mySpca$li), mySpca$li)
 
 
 ##############################
-#load environmental data and metadata
+#load environmental data
 ##############################
 
 #load in env data
 ##removed col 10 because zero variance
 env_all <- read.table(file="env_all_yeardec", header=T, sep="\t")[,-10]
-
-#load in metadata
-metadata <- read.table("metadata", sep="\t", header=TRUE)
 
 #load in collection years
 dates <- read.table("stq_dates_yeardec", sep="\t", header=TRUE)
