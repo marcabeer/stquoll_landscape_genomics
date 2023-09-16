@@ -1,0 +1,16 @@
+layer,env_factor,detail
+e1,bio1,Mean annual temperature
+e2,TDR,Mean diurnal temperature range
+e3,IT,Isothermality
+e4,TS,Temperature seasonality
+e5,AP,Annual precipitation
+e6,PS,Precipitation seasonality
+e7,Elev,Elevation
+e8,TASVEG,Landcover classes
+e9,Roads,Roads
+e10,Rivers,Rivers
+e11,Gen5_devil,Devil density lagged by 5 generations
+e12,Gen10_devil,Devil density lagged by 10 generations
+e13,Gen15_devil,Devil density lagged by 15 generations
+e14,Gen20_devil,Devil density lagged by 20 generations
+Distance,Geographic_distance,
