@@ -1,4 +1,4 @@
-# stquoll_landscape_genomics
+# Spotted-tailed quoll landscape genomics
 This repository contains scripts and data underlying population genomics analyses for a RADseq dataset of spotted-tailed quolls (Dasyurus maculatus) across Tasmania.
 
 The two major subdirectories contain the following:
