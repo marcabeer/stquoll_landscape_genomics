@@ -24,6 +24,4 @@ The two major subdirectories contain the following:
     - candidate_genes (determine genes in close proximity to SNPs with GEAs)
 
 
-Landscape genetics and genomics analyses for a Tasmanian spotted-tailed quoll RADseq dataset 
-
 
