@@ -7,6 +7,9 @@ The two major subdirectories contain the following:
   - metadata (data giving geographic coordinates and other sampling metadata)
 - analyses
   - env_data
+    - 1km_res (1km resolution environmental data used in ResistanceGA)
+    	- all files are inputs and intermediates produced by the Rscript except for those in the subdirectory /resistanceGA_rasters
+    - 100m_res (100m resolution environmental data used in tests for IBE and GEAs)
   - pop_struct
     - genetic_clusters (scripts to determine the number of genetic clusters in the dataset)
       - dapc (discriminant analysis of principal components)
