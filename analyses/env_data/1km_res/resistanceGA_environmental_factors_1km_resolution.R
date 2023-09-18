@@ -4,7 +4,7 @@ library(geodist)
 
 
 ##############################
-#Import devil density data
+#Import devil density and DFTD data
 ##############################
 
 #import DFTD arrival raster
@@ -15,16 +15,14 @@ dftd_reproj <- projectRaster(dftd, crs=new_prj, method="ngb")
 
 #import devil density rasterstack
 devil_rasterstack<-stack("predictionStack_devils_1985to2035.tif")
-plot(devil_rasterstack)
 devil_reproj<-projectRaster(devil_rasterstack, crs=new_prj, method="ngb")
-plot(devil_reproj)
 
 
 ##############################
 #Import TASVEG raster (reclassified; landcover data)
 ##############################
 
-tasveg<-raster("tasveg_1km_final.tif")
+tasveg <- raster("tasveg_1km_final.tif")
 
 
 ##############################
