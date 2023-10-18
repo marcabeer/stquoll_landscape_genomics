@@ -105,10 +105,14 @@ sel3 <- ordiR2step(mod0_geog, scope=formula(mod1), perm.max = 10000)
 #if not re-running above code, load in our results
 sel3 <- readRDS("prda_sel3_wtime.gz")
 
+summary(sel3)
+
 #Analysis variance of final selection model
 RDAc_sel3_marg <- anova.cca(sel3, by="margin")
+summary(RDAc_sel3_marg)
 rownames(RDAc_sel3_marg) <- c(colnames(stq_env_df)[c(12,10,20,15,23,8,19,14,9)], "Residual")
 RDAc_sel3_marg
+
 
 #get adjusted Rsquared of final model
 RsquareAdj(sel3)

@@ -130,12 +130,9 @@ m10_refit <- gdm(m10, geo=TRUE)
 
 
 
-#####
-#plotting splines for re-fit model
-
-#plot splines
-length(m10_refit$predictors)
-plot(m10_refit, plot.layout=c(4,3))
+##############################
+#Plot splines from re-fit model
+##############################
 
 #extract spline plots
 m10_splineDat <- isplineExtract(m10_refit)
@@ -164,8 +161,9 @@ spline_plot <- ggplot(data=spline_df, aes(x=x, y=y, group=var, color=var)) +
 spline_plot
 
 
-#####
-#variance partitioning for re-fit model
+##############################
+#Variance partitioning from re-fit model
+##############################
 
 #variable sets
 varSet_env <- list(Env=c("wc2.1_30s_bio_3", "wc2.1_30s_bio_4", "wc2.1_30s_bio_12", "wc2.1_30s_bio_15", "tasveg_100m_mod", "tasveg_100m_raf", "tasveg_100m_wef", "gen_dftd"))
@@ -254,6 +252,7 @@ pal_exp <- c("#88CCEE", "#CC6677", "#DDCC77", "#117733", "#332288", "#AA4499",
              "#44AA99", "#999933", "#88225598", "#6699CC","#661100")
 
 
+###
 #pie chart for all individual environmental factors
 df2 <- dev_part_df %>% 
   mutate(csum = rev(cumsum(rev(DEVIANCE_EXP))), 
@@ -280,6 +279,7 @@ pie_specific <- ggplot(dev_part_df, aes(x="", y=DEVIANCE_EXP, fill=FACTOR))+
   theme(panel.grid=element_blank())
 pie_specific
 
+###
 #group individual env factors into climate, landcover, and biotic factors
 pie_general <- ggplot(summ_df2, aes(x="", y=DEV_EXP_SUM, fill=FACTOR_TYPE))+
   geom_bar(stat="identity", width=1, colour="black")+
@@ -294,6 +294,7 @@ pie_general <- ggplot(summ_df2, aes(x="", y=DEV_EXP_SUM, fill=FACTOR_TYPE))+
 pie_general
 
 
+###
 #now consider only explained deviance
 pie_exp <- ggplot(dev_part_df_exp, aes(x="", y=percent, fill=FACTOR))+
   geom_bar(stat="identity", width=1, colour="black")+
