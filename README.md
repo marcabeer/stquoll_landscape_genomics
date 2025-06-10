@@ -10,6 +10,7 @@ The two major subdirectories contain the following:
     - 1km_res (1km resolution environmental data used in ResistanceGA)
     	- all files are inputs and intermediates produced by the Rscript except for those in the subdirectory /resistanceGA_rasters
     - 100m_res (100m resolution environmental data used in tests for IBE and GEAs)
+    - tasveg_reclassification_key.csv (key that relates TASVEG broad landcover categories to the reclassified numeric codes found in categorical TASVEG raster used in analyses)
   - pop_struct
     - genetic_clusters (scripts to determine the number of genetic clusters in the dataset)
       - dapc (discriminant analysis of principal components)
