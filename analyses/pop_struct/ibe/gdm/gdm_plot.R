@@ -128,8 +128,6 @@ m10 <- subset(x=m00, select=-c(s1.gen15_devil, s2.gen15_devil, s1.tasveg_100m_sw
 #re-fit model and plot response curves
 m10_refit <- gdm(m10, geo=TRUE)
 
-
-
 ##############################
 #Plot splines from re-fit model
 ##############################
